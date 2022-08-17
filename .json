@@ -1,6 +1,0 @@
-{
-  pergunta: “descrição pergunta”,
-“Opções”: [“opcao1”, “opcao2”, “opcao3”, “opcao4”
-  ], 
-  “opcaoCerta”: “opcao1”, “nivel”: “facil”, “pontuacao”: “1000”
-}
