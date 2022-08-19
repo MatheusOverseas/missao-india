@@ -47,7 +47,7 @@ let questions = [
 ];
 
 const SCORE_POINTS = 100;
-const MAX_QUESTIONS = 4;
+const MAX_QUESTIONS = 10;
 
 function startGame () {
   questionCounter = 0;
@@ -60,7 +60,6 @@ function getNewQuestion() {
   if(availableQuestions.length === 0 || questionsCounter > MAX_QUESTIONS) {
     localStorage.setItem("mostRecentScore", score);
     return window.location.assign("../html/end.html");
-
   }
 
   questionsCounter++;
@@ -90,17 +89,18 @@ choices.forEach(choice => {
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
 
-    let classToApply = selectedAnswer == currentQuestion.answer ? "correct": "incorrect"
+    //let classToApply = selectedAnswer == currentQuestion.answer ? "correct": "incorrect"
 
-    if(classToApply === "correct"){
-      incrementScore(SCORE_POINTS);
-    }
+    // if(classToApply === "correct"){
+    //   incrementScore(SCORE_POINTS);
+    // }
 
-    selectedChoice.parentElement.classList.add(classToApply);
+    selectedChoice.parentElement.classList.add("gray");
+
 
     setTimeout(() =>{
       selectedChoice.parentElement.classList.remove(classToApply);
-      getNewQuestion();
+      //getNewQuestion();
 
     }, 1000);
   })
@@ -109,6 +109,10 @@ choices.forEach(choice => {
 function incrementScore (num){
   score +=num;
   scoreText.innerText = score;
+}
+
+function myConsole(){
+  console.log("Rodando Função")
 }
 
 startGame();
